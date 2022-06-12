@@ -2,7 +2,9 @@
 
 <template>
   <div class="flex h-screen overflow-hidden">
-    <Contacts class=""></Contacts>
+    <div class="side-column w-1/3 bg-dark-green1 faint-right-border relative">
+      <Contacts class=""></Contacts>
+    </div>
     <div
       class="side-column w-1/3 bg-dark-green1 faint-right-border relative hidden"
     >

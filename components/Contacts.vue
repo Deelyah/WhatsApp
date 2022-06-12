@@ -20,14 +20,10 @@
       <ul>
         <li></li>
         <Messages
-          v-for="(content, index) in messageContent.sort(
-            (a, b) => a.name - b.name
-          )"
+          v-for="(content, index) in sortedContacts"
           :key="index"
           :name="content.name"
-          :time="content.time"
           :last-chat="content.lastChat"
-          :unread="content.unread"
         ></Messages>
       </ul>
     </div>
@@ -42,79 +38,74 @@ export default {
       messageContent: [
         {
           name: "Sopuluchukwu",
-          time: "3:38pm",
-          lastChat: "Wait Kosi is calling",
-          unread: 4,
+          lastChat: "Hey there! I am using WhatsApp",
         },
         {
           name: "Dan😎",
-          time: "2:38pm",
-          lastChat: "Network is just frustrating",
-          unread: 2,
+          lastChat: "✋there I am Daniel a Software Engineer",
         },
         {
           name: "Pheivor",
-          time: "now",
-          lastChat: "Sticker",
-          unread: 1,
+          lastChat: "God is not dead... He is surely alive💯",
         },
         {
           name: "Soap Person",
-          time: "2:38pm",
-          lastChat: "Network is just frustrating",
+          lastChat: "FunGuys & C2C COSMETICS",
         },
         {
           name: "Xtacy",
-          time: "yesterday",
           lastChat: "Babe, you dey center",
         },
         {
-          name: "Xtacy",
-          time: "yesterday",
-          lastChat: "Babe, you dey center",
+          name: "ShadowNetz",
+          lastChat: "My GHOST protocol",
+        },
+        {
+          name: "AdoraHack",
+          lastChat: "",
+        },
+        {
+          name: "Shuga",
+          lastChat: "Own your experience",
         },
         {
           name: "Xtacy",
-          time: "yesterday",
           lastChat: "Babe, you dey center",
         },
         {
-          name: "Xtacy",
-          time: "yesterday",
-          lastChat: "Babe, you dey center",
+          name: "2nd S",
+          lastChat: "I'm cold❤",
         },
         {
-          name: "Xtacy",
-          time: "yesterday",
-          lastChat: "Babe, you dey center",
+          name: "Honour's Dan",
+          lastChat: "Stellar Dev😎😉",
         },
         {
-          name: "Xtacy",
-          time: "yesterday",
-          lastChat: "Babe, you dey center",
+          name: "McJovial",
+          lastChat: "Dream💻🎭",
         },
         {
-          name: "Xtacy",
-          time: "yesterday",
-          lastChat: "Babe, you dey center",
-        },
-        {
-          name: "Xtacy",
-          time: "yesterday",
-          lastChat: "Babe, you dey center",
-        },
-        {
-          name: "Xtacy",
-          time: "yesterday",
-          lastChat: "Babe, you dey center",
-        },
-        {
-          name: "Xtacy",
-          time: "yesterday",
-          lastChat: "Babe, you dey center",
+          name: "Angel Nxt Door",
+          lastChat: "Too dark to be shaded🖤🧡",
         },
       ],
     };
+  },
+
+  computed: {
+    sortedContacts() {
+      return this.messageContent.sort(this.sorter);
+    },
+  },
+
+  methods: {
+    sorter(a, b) {
+      if (a.name > b.name) {
+        return 1;
+      } else {
+        return -1;
+      }
+    },
   },
 };
 </script>

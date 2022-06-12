@@ -1,0 +1,100 @@
+html, body {
+  height: 100%;
+}
+
+.nav-bg-green {
+  background-color: #202c33;
+}
+
+.bg-dropdown{
+  background-color: #233138;
+}
+
+.bg-dark-green1 {
+  background-color: #111b21;
+}
+
+.bg-dark-green2 {
+  background-color: #222E35;
+}
+
+.bg-dark-green3 {
+  background-color: #364147;
+}
+
+.faint-right-border {
+  border-right: 0.1px solid #8696a052;
+}
+
+.faint-bottom-border {
+  border-bottom: 0.1px solid #8696a026;
+
+}
+
+.text-dark-green1 {
+  color: #111b21;
+}
+
+.dropdown-text {
+  color: #d1d7db;
+}
+
+.main-text-color {
+  color: #e9edef;
+}
+
+.minor-text-color {
+  color: #8696a0;
+}
+
+.text-archive-color {
+  color: #d9dee0;
+}
+
+.text-whatsapp-green {
+  color: #00A884;
+}
+
+.bg-whatsapp-green {
+  background-color: #00A884;
+}
+
+.shadow {
+  box-shadow: 0 2px 10px 0 #f2f2f2;
+
+}
+
+.icon-color {
+  background-color: #AEBAC1;
+}
+
+.default-page-border {
+  border-bottom: 5px solid #00A884;
+}
+
+li {
+  cursor: pointer;
+}
+
+li:hover {
+  background-color: #202c33;
+}
+
+.messages {
+  height: 560px;
+}
+.messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+.messages::-webkit-scrollbar-thumb {
+  background-color: #202c33;
+}
+
+.side-column {
+  min-width: 300px;
+}
+
+.major-column {
+  min-width: 500px;
+}

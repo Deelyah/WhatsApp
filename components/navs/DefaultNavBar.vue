@@ -7,7 +7,11 @@
         src="~/assets/smaller-dp.png"
         alt="display picture"
         class="cursor-pointer"
-        @click="$emit('openProfileSection')"
+        @click="
+          () => {
+            $store.commit('toggleProfile');
+          }
+        "
       />
       <div class="flex ml-auto items-center">
         <button class="p-2 mr-1" title="Status">
@@ -31,7 +35,14 @@
             ></path>
           </svg>
         </button>
-        <button class="p-2 mr-1" @click="$emit('click')">
+        <button
+          class="p-2 mr-1"
+          @click="
+            () => {
+              $store.commit('toggleNewChat');
+            }
+          "
+        >
           <img
             src="~/assets/icons/chat-icon.png"
             alt="New Chat"
@@ -47,7 +58,6 @@
       </div>
       <Dropdown
         v-if="dropdownIsVisible"
-        @newGroup="$emit('createGroup')"
         @closeDropdown="dropdownIsVisible = !dropdownIsVisible"
       ></Dropdown>
     </div>

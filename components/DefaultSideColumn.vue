@@ -7,7 +7,6 @@
         <NavsMiniNav>
           <NavsDefaultNavBar
             @click="$emit('openNewChat')"
-            @openProfileSection="$emit('openProfile')"
             @createGroup="$emit('createNewGroup')"
           ></NavsDefaultNavBar>
         </NavsMiniNav>

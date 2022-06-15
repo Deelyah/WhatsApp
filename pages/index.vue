@@ -2,34 +2,38 @@
 
 <template>
   <div class="flex h-screen overflow-hidden">
-    <div class="side-column w-1/3 bg-dark-green1 faint-right-border relative">
-      <Contacts class=""></Contacts>
-    </div>
     <div
       class="side-column w-1/3 bg-dark-green1 faint-right-border relative hidden"
-    >
+    ></div>
+    <div class="side-column w-1/3 bg-dark-green1 faint-right-border relative">
       <!-- The div above contains 3 side columns to be displayed when various elements are clicked on -->
-      <section
-        v-if="!archiveIsVisible && !newChatIsVisible && !profileIsVisible"
-      >
+      <section v-if="$store.getters.sideColumnState">
         <!-- The default side column is to be displayed only when neither the "new chat" column nor the "archive" column is set to true-->
         <DefaultSideColumn
-          @openArchive="archiveIsVisible = !archiveIsVisible"
-          @openNewChat="newChatIsVisible = !newChatIsVisible"
-          @openProfile="profileIsVisible = !profileIsVisible"
-          @createNewGroup="newGroup = !newGroup"
+          @openArchive="
+            () => {
+              $store.commit('toggleArchive');
+            }
+          "
+          @createNewGroup="
+            () => {
+              $store.commit('toggleArchive');
+            }
+          "
         ></DefaultSideColumn>
       </section>
-      <section v-else-if="archiveIsVisible">
-        <Archive @closeArchive="archiveIsVisible = !archiveIsVisible"></Archive>
+      <section v-else-if="$store.getters.archiveState">
+        <Archive></Archive>
       </section>
-      <section v-else-if="newChatIsVisible">
-        <NewChat @closeNewChat="newChatIsVisible = !newChatIsVisible"></NewChat>
+      <section v-else-if="$store.getters.newChatState">
+        <NewChat></NewChat>
+      </section>
+      <section v-else-if="$store.getters.profileState">
+        <Profile></Profile>
       </section>
       <section v-else>
-        <Profile @closeProfile="profileIsVisible = !profileIsVisible"></Profile>
+        <NewGroup></NewGroup>
       </section>
-      <section></section>
     </div>
     <section
       class="major-column w-3/4 h-screen bg-dark-green2 flex justify-center items-center default-page-border"
@@ -64,14 +68,6 @@ import NewChat from "../components/NewChat.vue";
 import Profile from "../components/Profile.vue";
 export default {
   name: "IndexPage",
-  data() {
-    return {
-      archiveIsVisible: this.$store.getters.displayArchive,
-      newChatIsVisible: false,
-      profileIsVisible: false,
-      newGroup: false,
-    };
-  },
   computed: {
     getHeight() {
       // let height = Math.floor((this.width - 110) / 4);

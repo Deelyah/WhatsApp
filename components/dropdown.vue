@@ -7,7 +7,11 @@
       <li>
         <button
           class="py-2.5 pl-6 pr-14 w-full text-left"
-          @click="$emit('newGroup')"
+          @click="
+            () => {
+              $store.commit('toggleNewGroup');
+            }
+          "
         >
           New group
         </button>

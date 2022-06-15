@@ -9,7 +9,11 @@
             src="~/assets/icons/back-icon.png"
             alt="back"
             class="mr-7 cursor-pointer"
-            @click="$emit('closeArchive')"
+            @click="
+              () => {
+                $store.commit('toggleArchive');
+              }
+            "
           />
         </NavsLargeNav>
       </div>

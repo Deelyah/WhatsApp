@@ -3,28 +3,45 @@ export const state = () => {
     sideColumnIsVisible: true,
     newChatIsVisible: false,
     archiveIsVisible: false,
-    propfileIsVisible: false,
+    profileIsVisible: false,
+    newGroupChat: false,
   };
 };
 
 export const mutations = {
-  toggleNewChat() {
+  toggleNewChat(state) {
     state.newChatIsVisible = !state.newChatIsVisible;
-    alert(state.newChatIsVisible);
+    state.sideColumnIsVisible = !state.sideColumnIsVisible;
+    console.log("new chat");
   },
-  toggleArchive() {
+  toggleArchive(state) {
     state.archiveIsVisible = !state.archiveIsVisible;
+    state.sideColumnIsVisible = !state.sideColumnIsVisible;
+    console.log("archive");
   },
-  toggleProfile() {
-    state.propfileIsVisible = !state.propfileIsVisible;
+  toggleProfile(state) {
+    state.profileIsVisible = !state.profileIsVisible;
+    state.sideColumnIsVisible = !state.sideColumnIsVisible;
+    console.log("profile");
+  },
+  toggleNewGroup(state) {
+    state.newGroupChat = !state.newGroupChat;
+    state.sideColumnIsVisible = !state.sideColumnIsVisible;
+    console.log("new group");
   },
 };
 
 export const getters = {
-  displayChat(state) {
+  sideColumnState(state) {
+    return state.sideColumnIsVisible;
+  },
+  newChatState(state) {
     return state.newChatIsVisible;
   },
-  displayArchive(state) {
+  archiveState(state) {
     return state.archiveIsVisible;
+  },
+  profileState(state) {
+    return state.profileIsVisible;
   },
 };

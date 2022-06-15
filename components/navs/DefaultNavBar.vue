@@ -47,6 +47,7 @@
       </div>
       <Dropdown
         v-if="dropdownIsVisible"
+        @newGroup="$emit('createGroup')"
         @closeDropdown="dropdownIsVisible = !dropdownIsVisible"
       ></Dropdown>
     </div>

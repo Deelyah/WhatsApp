@@ -4,7 +4,7 @@
   <div>
     <div class="sticky top-0">
       <div>
-        <NavsLargeNav text="New Chat">
+        <NavsLargeNav navTitle="New Chat">
           <img
             src="~/assets/icons/back-icon.png"
             alt="back"

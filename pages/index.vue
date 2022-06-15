@@ -17,6 +17,7 @@
           @openArchive="archiveIsVisible = !archiveIsVisible"
           @openNewChat="newChatIsVisible = !newChatIsVisible"
           @openProfile="profileIsVisible = !profileIsVisible"
+          @createNewGroup="newGroup = !newGroup"
         ></DefaultSideColumn>
       </section>
       <section v-else-if="archiveIsVisible">
@@ -28,6 +29,7 @@
       <section v-else>
         <Profile @closeProfile="profileIsVisible = !profileIsVisible"></Profile>
       </section>
+      <section></section>
     </div>
     <section
       class="major-column w-3/4 h-screen bg-dark-green2 flex justify-center items-center default-page-border"
@@ -64,9 +66,10 @@ export default {
   name: "IndexPage",
   data() {
     return {
-      archiveIsVisible: false,
+      archiveIsVisible: this.$store.getters.displayArchive,
       newChatIsVisible: false,
       profileIsVisible: false,
+      newGroup: false,
     };
   },
   computed: {

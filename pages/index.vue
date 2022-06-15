@@ -10,11 +10,6 @@
       <section v-if="$store.getters.sideColumnState">
         <!-- The default side column is to be displayed only when neither the "new chat" column nor the "archive" column is set to true-->
         <DefaultSideColumn
-          @openArchive="
-            () => {
-              $store.commit('toggleArchive');
-            }
-          "
           @createNewGroup="
             () => {
               $store.commit('toggleArchive');

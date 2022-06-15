@@ -21,8 +21,8 @@
     </div>
 
     <div class="overflow-scroll messages">
-      <li class="flex items-center py-3">
-        <div class="pl-3 pr-4">
+      <li class="flex items-center">
+        <div class="pl-3 pr-4 py-3">
           <span
             class="w-12 h-12 rounded-full bg-whatsapp-green flex justify-center items-center"
             ><svg width="36" height="36" viewBox="0 0 212 212" fill="none">
@@ -37,7 +37,13 @@
               ></path></svg
           ></span>
         </div>
-        <p class="main-text-color">New Group</p>
+        <p class="main-text-color faint-bottom-border py-6 w-4/5">New Group</p>
+      </li>
+      <li class="flex items-center">
+        <div class="flex justify-center items-center">
+          <p class="text-whatsapp-green py-6 px-8">A</p>
+        </div>
+        <p class="main-text-color faint-bottom-border py-9 w-4/5"></p>
       </li>
       <Contacts></Contacts>
     </div>

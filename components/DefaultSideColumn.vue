@@ -17,7 +17,11 @@
     <div class="overflow-scroll messages">
       <div
         class="flex items-center cursor-pointer"
-        @click="$emit('openArchive')"
+        @click="
+          () => {
+            $store.commit('toggleArchive');
+          }
+        "
       >
         <img
           src="~/assets/icons/archive-icon.png"

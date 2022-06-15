@@ -19,7 +19,7 @@
       </div>
     </div>
 
-    <div class="overflow-scroll messages" ref="messageList">
+    <div class="overflow-scroll messages">
       <ul>
         <Messages
           v-for="(content, index) in messageContent"

@@ -166,7 +166,15 @@
       </div>
     </div>
 
-    <Contacts class="overflow-scroll messages"></Contacts>
+    <div>
+      <li class="flex items-center">
+        <div class="flex justify-center items-center">
+          <p class="text-whatsapp-green py-6 px-8">A</p>
+        </div>
+        <p class="main-text-color faint-bottom-border py-9 w-4/5"></p>
+      </li>
+      <Contacts class="overflow-scroll messages"></Contacts>
+    </div>
   </div>
 </template>
 

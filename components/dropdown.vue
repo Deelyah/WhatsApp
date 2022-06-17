@@ -25,7 +25,16 @@
         <button class="py-2.5 pl-6 pr-14 w-full text-left">Settings</button>
       </li>
       <li>
-        <button class="py-2.5 pl-6 pr-14 w-full text-left">Logout</button>
+        <button
+          @click="
+            () => {
+              $store.commit('toggleLogOut');
+            }
+          "
+          class="py-2.5 pl-6 pr-14 w-full text-left"
+        >
+          Log out
+        </button>
       </li>
     </ul>
   </div>

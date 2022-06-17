@@ -5,6 +5,7 @@ export const state = () => {
     archiveIsVisible: false,
     profileIsVisible: false,
     newGroupChat: false,
+    logOutIsClicked: false,
   };
 };
 
@@ -12,22 +13,22 @@ export const mutations = {
   toggleNewChat(state) {
     state.newChatIsVisible = !state.newChatIsVisible;
     state.sideColumnIsVisible = !state.sideColumnIsVisible;
-    console.log("new chat");
   },
   toggleArchive(state) {
     state.archiveIsVisible = !state.archiveIsVisible;
     state.sideColumnIsVisible = !state.sideColumnIsVisible;
-    console.log("archive");
   },
   toggleProfile(state) {
     state.profileIsVisible = !state.profileIsVisible;
     state.sideColumnIsVisible = !state.sideColumnIsVisible;
-    console.log("profile");
   },
   toggleNewGroup(state) {
     state.newGroupChat = !state.newGroupChat;
     state.sideColumnIsVisible = !state.sideColumnIsVisible;
-    console.log("new group");
+  },
+  toggleLogOut(state) {
+    state.logOutIsClicked = !state.logOutIsClicked;
+    console.log(state.logOutIsClicked);
   },
 };
 
@@ -43,5 +44,8 @@ export const getters = {
   },
   profileState(state) {
     return state.profileIsVisible;
+  },
+  logOutState(state) {
+    return state.logOutIsClicked;
   },
 };

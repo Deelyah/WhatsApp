@@ -3,20 +3,18 @@
 <template>
   <div>
     <div class="sticky top-0">
-      <div>
-        <NavsLargeNav navTitle="Archived">
-          <img
-            src="~/assets/icons/back-icon.png"
-            alt="back"
-            class="mr-7 cursor-pointer"
-            @click="
-              () => {
-                $store.commit('toggleArchive');
-              }
-            "
-          />
-        </NavsLargeNav>
-      </div>
+      <NavsLargeNav navTitle="Archived">
+        <img
+          src="~/assets/icons/back-icon.png"
+          alt="back"
+          class="mr-7 cursor-pointer"
+          @click="
+            () => {
+              $store.commit('toggleArchive');
+            }
+          "
+        />
+      </NavsLargeNav>
     </div>
 
     <div class="overflow-scroll messages">

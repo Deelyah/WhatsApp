@@ -5,7 +5,8 @@ export const state = () => {
     archiveIsVisible: false,
     profileIsVisible: false,
     newGroupChat: false,
-    logOutIsClicked: false,
+    logOutIsVisible: false,
+    SettingsAreVisible: false,
   };
 };
 
@@ -27,8 +28,12 @@ export const mutations = {
     state.sideColumnIsVisible = !state.sideColumnIsVisible;
   },
   toggleLogOut(state) {
-    state.logOutIsClicked = !state.logOutIsClicked;
-    console.log(state.logOutIsClicked);
+    state.logOutIsVisible = !state.logOutIsVisible;
+    console.log(state.logOutIsVisible);
+  },
+  toggleSettings(state) {
+    state.SettingsAreVisible = !state.SettingsAreVisible;
+    state.sideColumnIsVisible = !state.sideColumnIsVisible;
   },
 };
 
@@ -45,7 +50,13 @@ export const getters = {
   profileState(state) {
     return state.profileIsVisible;
   },
+  newGroupChatState(state) {
+    return state.newGroupChat;
+  },
   logOutState(state) {
-    return state.logOutIsClicked;
+    return state.logOutIsVisible;
+  },
+  settingsState(state) {
+    return state.SettingsAreVisible;
   },
 };

@@ -6,17 +6,8 @@
     <div id="conditional-fullscreen">
       <LogOut v-if="$store.getters.logOutState"></LogOut>
     </div>
-
-    <!-- default-fullscreen contains: 
-    (1) all possible side cloumns that do not need the other part of the screen to exist
-    example: the default side menu containing all messages, newChat component, newGroup component etc which are rendered conditionally
-    (2) and also the other side 2/3% of the screen e.g the default page when you open the site for the first time,
-    the page which shows your text (your dm) with each person -->
     <div id="default-fullscreen">
       <div class="flex h-screen overflow-hidden">
-        <div
-          class="side-column w-1/3 bg-dark-green1 faint-right-border relative hidden"
-        ></div>
         <div
           class="side-column w-1/3 bg-dark-green1 faint-right-border relative"
         >
@@ -25,38 +16,13 @@
             <!-- The default side column is to be displayed only when neither the "new chat" column nor the "archive" column is set to true-->
             <DefaultSideColumn></DefaultSideColumn>
           </section>
-          <section v-else-if="$store.getters.archiveState">
-            <Archive></Archive>
-          </section>
-          <section v-else-if="$store.getters.newChatState">
-            <NewChat></NewChat>
-          </section>
-          <section v-else-if="$store.getters.profileState">
-            <Profile></Profile>
-          </section>
-          <section v-else>
-            <NewGroup></NewGroup>
+          <section>
+            <RenderedSideColumn></RenderedSideColumn>
           </section>
         </div>
         <section
           class="major-column w-3/4 h-screen bg-dark-green2 flex justify-center items-center default-page-border"
         >
-          <svg
-            class="nxn8agaf kv6wexeh lhggkp7q"
-            width="48"
-            height="48"
-            viewBox="0 0 104 104"
-          >
-            <circle
-              cx="52"
-              cy="52"
-              r="50"
-              fill="none"
-              stroke-linecap="round"
-              class="j9ny8kmf"
-              stroke-width="4"
-            ></circle>
-          </svg>
           <DefaultPage></DefaultPage>
         </section>
       </div>
@@ -71,6 +37,7 @@ import DefaultPage from "../components/DefaultPage.vue";
 import Archive from "../components/Archive.vue";
 import NewChat from "../components/NewChat.vue";
 import Profile from "../components/Profile.vue";
+import RenderedSideColumn from "../components/RenderedSideColumn.vue";
 export default {
   name: "IndexPage",
   computed: {
@@ -79,7 +46,15 @@ export default {
       // return `h-${height}`;
     },
   },
-  components: { SearchBar, Messages, DefaultPage, Archive, NewChat, Profile },
+  components: {
+    SearchBar,
+    Messages,
+    DefaultPage,
+    Archive,
+    NewChat,
+    Profile,
+    RenderedSideColumn,
+  },
   mounted() {
     // this.width = window.innerHeight;
     // this.$refs.messageList.clientHeight = this.width - 110

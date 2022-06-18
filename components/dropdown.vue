@@ -22,7 +22,16 @@
         </button>
       </li>
       <li>
-        <button class="py-2.5 pl-6 pr-14 w-full text-left">Settings</button>
+        <button
+          class="py-2.5 pl-6 pr-14 w-full text-left"
+          @click="
+            () => {
+              $store.commit('toggleSettings');
+            }
+          "
+        >
+          Settings
+        </button>
       </li>
       <li>
         <button
